@@ -1,0 +1,47 @@
+.animated-bg-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0e0e0e;
+  z-index: 0; 
+  overflow: hidden;
+  pointer-events: none; 
+}
+
+.tiny-spark {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp infinite linear;
+  box-shadow: 0 0 6px #fff, 0 0 10px #6a5cff;
+}
+
+.tiny-spark:nth-child(even) {
+  background: #ff8fab;
+  box-shadow: 0 0 6px #ff8fab, 0 0 12px #ce1260;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(10vh) scale(0.3);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .tiny-spark:nth-child(3n) {
+    display: none !important;
+  }
+}
